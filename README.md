@@ -1,31 +1,31 @@
-# Data_Science_Movies
+# Data Science - Movie project
+
+## Main Purpose
+Movies data analyzation through the years, trying to find connection between The connection between the success of the movie by rating and the stars of the movie
 
 * Research Question
 * Write understading and clear research question
 * Research assumption
-## Learning
+## Acquisition
+* Crawling from wikipedia
+* Crawling from idbm
 
+### using
 * BS4 - beautiful soup
 * Selenium
-## Crawling
 
- Crawling from wikipedia
- Crawling from idbm
- 
-## Data handling
+## Data Cleaning
 
 * Handling Empty spaces
+* Handling Wrong data (years)
 * Handling Duplicates
-* Handling Outliers
-## EDA
 
- Find the best graph to visualize our data
- Visualize our data using graphs
-Machine Learning Model
+## Visualisation
+* Explaining the data through graphs
 
- Analyse our data and params
- Find the best way to build our model
- Get the result
+## Machine Learning
+* Predict the rating of a movie by stars 
+
 # Project requirements:
  Presentation
  Video
