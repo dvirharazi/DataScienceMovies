@@ -15,9 +15,9 @@ Learning
  
 # Data handling
 
- Handling Empty spaces
- Handling Duplicates
- Handling Outliers
+* Handling Empty spaces
+* Handling Duplicates
+* Handling Outliers
 # EDA
 
  Find the best graph to visualize our data
