@@ -154,3 +154,6 @@ def clean_dataframe():
 # print("Done locating data from wiki!!")
 # df_movie_year.to_csv('movie_wiki1.csv')
 clean_dataframe()
+
+
+
