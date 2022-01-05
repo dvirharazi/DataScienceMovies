@@ -4,21 +4,21 @@ Research Question
 
  Write understading and clear research question
  Research assumption
-Learning
+## Learning
 
  BS4 - beautiful soup
  Selenium
-# Crawling
+## Crawling
 
  Crawling from wikipedia
  Crawling from idbm
  
-# Data handling
+## Data handling
 
 * Handling Empty spaces
 * Handling Duplicates
 * Handling Outliers
-# EDA
+## EDA
 
  Find the best graph to visualize our data
  Visualize our data using graphs
@@ -27,7 +27,7 @@ Machine Learning Model
  Analyse our data and params
  Find the best way to build our model
  Get the result
-## Project requirements:
+# Project requirements:
  Presentation
  Video
  Wow Effect
