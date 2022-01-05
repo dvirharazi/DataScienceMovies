@@ -27,7 +27,7 @@ Movies data analyzation through the years, trying to find connection between The
 * Predict the rating of a movie by stars 
 
 # Project requirements:
- -Presentation
- -Video
- -Wow Effect
- -Summary
+ * Presentation
+ * Video
+ * Wow Effect
+ * Summary
