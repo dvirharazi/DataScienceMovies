@@ -1,3 +1,4 @@
+import numpy as np
 import requests as requests
 import webdriver_manager
 from bs4 import BeautifulSoup
@@ -40,30 +41,44 @@ def load_movies_per_years(year_url_address, driver):
                 trs = table.find_all("tr")
                 for tr in trs[1:]:
                     movie_data = tr.find_all("i")
-                    add_data_to_table_selenium(movie_data[0].text.strip(), driver, directors, writers, stars, rating , genres, idbm_year)
+                    add_data_to_table_selenium(movie_data[0].text.strip(), driver, directors, writers, stars, rating,
+                                               genres, idbm_year)
                     movie_name.append(movie_data[0].text.strip())
                     years.append(year_url_address.iloc[item][0])
+
         except:
             print("exeption")
             continue
     driver.close()
-    return pd.DataFrame({"name": movie_name, "year": years, "idbm_year": idbm_year, "director":directors, "writers": writers, "star":stars, "rating": rating, "genre":genres})
+    return pd.DataFrame(
+        {"name": movie_name, "year": years, "idbm_year": idbm_year, "director": directors, "writers": writers,
+         "star": stars, "rating": rating, "genre": genres})
 
 
-def add_data_to_table_selenium(movie_name, s, directors, writers, stars, rating , genres, idbm_year):
+def add_data_to_table_selenium(movie_name, s, directors, writers, stars, rating, genres, idbm_year):
     list_of_directors = []
     list_of_writers = []
     list_of_genres = []
     list_of_stars = []
-    driver.get('https://www.imdb.com/')
-    inputElement = driver.find_element_by_id("suggestion-search")
-    inputElement.send_keys(movie_name)
-    click_btn = driver.find_element_by_id("suggestion-search-button")
-    click_btn.click()
-    results = driver.find_element_by_xpath("//table[@class='findList']/tbody/tr/td[@class='primary_photo']/a")
-    results.click()  # clicks the first one
-    c = driver.page_source
-    bs = BeautifulSoup(c, "html.parser")
+    try:
+        driver.get('https://www.imdb.com/')
+        inputElement = driver.find_element_by_id("suggestion-search")
+        inputElement.send_keys(movie_name)
+        click_btn = driver.find_element_by_id("suggestion-search-button")
+        click_btn.click()
+        results = driver.find_element_by_xpath("//table[@class='findList']/tbody/tr/td[@class='primary_photo']/a")
+        results.click()  # clicks the first one
+        c = driver.page_source
+        bs = BeautifulSoup(c, "html.parser")
+    except:
+        print("connection lost")
+        genres.append("")
+        rating.append("")
+        directors.append("")
+        writers.append("")
+        stars.append("")
+        idbm_year.append("")
+        return
 
     try:
         genre = bs.find("div", class_="ipc-chip-list").find_all('span', class_="ipc-chip__text")
@@ -73,13 +88,13 @@ def add_data_to_table_selenium(movie_name, s, directors, writers, stars, rating 
         genres.append(string_genres)
     except:
         genres.append("")
-
     try:
-        year = bs.find("div", class_="TitleBlock__TitleMetaDataContainer-sc-1nlhx7j-2").find_all('li', class_="ipc-inline-list__item")
+        year = bs.find("div", class_="TitleBlock__TitleMetaDataContainer-sc-1nlhx7j-2").find_all('li',
+                                                                                                 class_="ipc-inline-list__item")
         y = year[0].find('span', class_='TitleBlockMetaData__ListItemText-sc-12ein40-2')
         idbm_year.append(y.text)
     except:
-        genres.append("")
+        idbm_year.append("")
 
     try:
         rate = bs.find("span", class_="AggregateRatingButton__RatingScore-sc-1ll29m0-1")
@@ -116,15 +131,26 @@ def add_data_to_table_selenium(movie_name, s, directors, writers, stars, rating 
         stars.append("")
 
 
+def load_csv(file_name):
+    df = pd.read_csv(file_name)
+    return df
+
+def clean_dataframe():
+    df = load_csv('movie_wiki1.csv')
+    df = df.dropna(axis=0, subset=['star'])
+    df = df[df.year == df.idbm_year]
+    df = df.drop(df.columns[0], axis=1)
+    df = df.reset_index(drop=True)
+    df.to_csv('movie_wiki2.csv')
+
+
 # scraping movie data
-list_of_american_films_wiki = "https://en.wikipedia.org/wiki/Lists_of_American_films"
-r = requests.get(list_of_american_films_wiki)
-bs = BeautifulSoup(r.content, "html.parser")
-links_df = scrape_movie_years_links(bs.contents)
-driver = webdriver.Chrome(ChromeDriverManager().install())
-df_movie_year = load_movies_per_years(links_df, driver)
-print("Done locating data from wiki!!")
-df_movie_year.to_csv('movie_wiki1.csv')
-
-
-
+# list_of_american_films_wiki = "https://en.wikipedia.org/wiki/Lists_of_American_films"
+# r = requests.get(list_of_american_films_wiki)
+# bs = BeautifulSoup(r.content, "html.parser")
+# links_df = scrape_movie_years_links(bs.contents)
+# driver = webdriver.Chrome(ChromeDriverManager().install())
+# df_movie_year = load_movies_per_years(links_df, driver)
+# print("Done locating data from wiki!!")
+# df_movie_year.to_csv('movie_wiki1.csv')
+clean_dataframe()
