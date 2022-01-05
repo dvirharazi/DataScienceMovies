@@ -1,13 +1,12 @@
 # Data_Science_Movies
 
-Research Question
-
- Write understading and clear research question
- Research assumption
+* Research Question
+* Write understading and clear research question
+* Research assumption
 ## Learning
 
- BS4 - beautiful soup
- Selenium
+* BS4 - beautiful soup
+* Selenium
 ## Crawling
 
  Crawling from wikipedia
