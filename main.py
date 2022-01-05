@@ -145,9 +145,9 @@ def clean_dataframe():
 
 
 # scraping movie data
-# list_of_american_films_wiki = "https://en.wikipedia.org/wiki/Lists_of_American_films"
-# r = requests.get(list_of_american_films_wiki)
-# bs = BeautifulSoup(r.content, "html.parser")
+list_of_american_films_wiki = "https://en.wikipedia.org/wiki/Lists_of_American_films"
+r = requests.get(list_of_american_films_wiki)
+bs = BeautifulSoup(r.content, "html.parser")
 # links_df = scrape_movie_years_links(bs.contents)
 # driver = webdriver.Chrome(ChromeDriverManager().install())
 # df_movie_year = load_movies_per_years(links_df, driver)
