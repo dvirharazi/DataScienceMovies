@@ -141,7 +141,7 @@ def clean_dataframe():
     df = df[df.year == df.idbm_year]
     df = df.drop(df.columns[0], axis=1)
     df = df.reset_index(drop=True)
-    df.to_csv('movie_wiki2.csv')
+    df.to_csv('movie_after_clean.csv')
 
 
 # scraping movie data
