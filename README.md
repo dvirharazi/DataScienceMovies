@@ -10,14 +10,14 @@ Movies data analyzation through the years, trying to find connection between The
 * Crawling from wikipedia
 * Crawling from idbm
 
-### using
+### Using
 * BS4 - beautiful soup
 * Selenium
 
 ## Data Cleaning
 
 * Handling Empty spaces
-* Handling Wrong data (years)
+* Handling Wrong data (Years)
 * Handling Duplicates
 
 ## Visualisation
