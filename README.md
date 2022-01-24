@@ -9,7 +9,7 @@ Is it possible to predict whether a film will succeed according to the movie cas
 * Crawling from wikipedia
 * Crawling from idbm
 
-### Using
+### Using with libraries:
 * BS4 - beautiful soup
 * Selenium
 * Pandas
