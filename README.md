@@ -65,3 +65,10 @@ According to the success rates of the prediction,
  
  
 ![image](https://user-images.githubusercontent.com/68842383/150826352-ea1cd044-6cc2-4dce-a84d-0a0cb9d24e5e.png)
+
+## Conclusions
+
+The closer the prediction value is to 1, the more accurate the prediction. We have reached a predict value of 0.874, which is very close and therefore confirms the research question.
+
+Therefore there is a connection between the film crew and the rating!
+
