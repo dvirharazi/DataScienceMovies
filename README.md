@@ -37,7 +37,7 @@ Is it possible to predict whether a film will succeed according to the movie cas
 
 
 
-Top 10 frequent genres – most of movies is belongto Comedy, Action, Drama 
+Top 10 frequent genres – most of movies is belong to Comedy, Action, Drama 
 
 ![image](https://user-images.githubusercontent.com/68842383/150825827-1a19b8a9-8b64-49e7-8191-6ca4e219d34e.png)
 
