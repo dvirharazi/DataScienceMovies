@@ -1,7 +1,7 @@
 # Data Science - Movie project
 
 ## Main Purpose
-We have had movies for over 60 years, but is there a connection between the success of the film and its characteristics? This is the question we will explore in this project.
+We have had movies for over 60 years, but is there a connection between the success of the film and its cast features? This is the question we will explore in this project.
 ## Research Question
 Is it possible to predict whether a film will succeed according to the movie cast features?
 
