@@ -70,5 +70,4 @@ According to the success rates of the prediction,
 
 The closer the prediction value is to 1, the more accurate the prediction. We have reached a predict value of 0.874, which is very close and therefore confirms the research question.
 
-Therefore there is a connection between the film crew and the rating!
-
+So there is a connection between the movie cast features!
